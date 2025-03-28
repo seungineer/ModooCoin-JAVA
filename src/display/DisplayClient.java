@@ -1,5 +1,7 @@
 package display;
 
+import display.component.CoinListHandler;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -10,6 +12,8 @@ public class DisplayClient {
     public static void main(String[] args) {
         String serverAddress = "localhost";
         int port = 9999;
+
+        CoinListHandler coinListHandler = new CoinListHandler();
 
         try (
                 Socket socket = new Socket(serverAddress, port);
@@ -24,7 +28,7 @@ public class DisplayClient {
                 try {
                     String line;
                     while ((line = in.readLine()) != null) {
-                        System.out.println("📥 서버로부터: " + line);
+                        coinListHandler.drawCoinList(line);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
