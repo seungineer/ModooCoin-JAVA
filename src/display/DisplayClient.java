@@ -22,12 +22,14 @@ public class DisplayClient {
                 BufferedReader consoleInput = new BufferedReader(new InputStreamReader(System.in));
         ) {
             System.out.println("✅ 서버 연결 완료. 메시지 입력 가능.");
-
+            coinListHandler.setCoinMap();
             // 메시지 수신 쓰레드
             new Thread(() -> {
                 try {
                     String line;
                     while ((line = in.readLine()) != null) {
+                        System.out.print("\033[H\033[2J");
+                        System.out.flush();
                         coinListHandler.drawCoinList(line);
                     }
                 } catch (Exception e) {

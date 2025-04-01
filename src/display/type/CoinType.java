@@ -1,6 +1,6 @@
 package display.type;
 
-public enum Coin {
+public enum CoinType {
     KRW_BTC,
     KRW_ETH,
     KRW_XRP,
