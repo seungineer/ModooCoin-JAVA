@@ -23,7 +23,8 @@ public class UpbitWebSocketClient {
                     public void onOpen(WebSocket webSocket) {
                         System.out.println("✅ 업비트에 연결됨");
 
-                        String subscribeMessage = "[{\"ticket\":\"test\"},{\"type\":\"ticker\",\"codes\":[\"KRW-BTC\"]}]";
+                        String subscribeMessage = "[{\"ticket\":\"test\"},{\"type\":\"ticker\",\"codes\":" +
+                                "[\"KRW-BTC\",\"KRW-ETH\",\"KRW-XRP\",\"KRW-DOT\",\"KRW-ADA\"]}]";
                         ByteBuffer buffer = StandardCharsets.UTF_8.encode(subscribeMessage);
                         webSocket.sendBinary(buffer, true);
 
