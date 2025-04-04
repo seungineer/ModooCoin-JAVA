@@ -1,6 +1,7 @@
 package display;
 
 import display.component.CoinListHandler;
+import utils.CoinUpdater;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -22,7 +23,7 @@ public class DisplayClient {
                 BufferedReader consoleInput = new BufferedReader(new InputStreamReader(System.in));
         ) {
             System.out.println("✅ 서버 연결 완료. 메시지 입력 가능.");
-            coinListHandler.setCoinMap();
+            coinListHandler.startDrawing();
             // 메시지 수신 쓰레드
             new Thread(() -> {
                 try {

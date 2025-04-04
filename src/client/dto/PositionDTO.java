@@ -89,4 +89,17 @@ public class PositionDTO {
     public void setProfit(long profit) {
         this.profit = profit;
     }
+
+    @Override
+    public String toString() {
+        return "PositionDTO{" +
+                "coinName='" + coinName + '\'' +
+                ", quantity=" + quantity +
+                ", entryPrice=" + entryPrice +
+                ", entryTime='" + entryTime + '\'' +
+                ", currentPrice=" + currentPrice +
+                ", orderType='" + orderType + '\'' +
+                ", profit=" + profit +
+                '}';
+    }
 }
