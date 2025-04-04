@@ -2,59 +2,31 @@ package display.component;
 
 import display.dto.Coin;
 import display.type.CoinType;
-import display.utils.JsonParser;
+import utils.CoinUpdater;
+import utils.JsonParser;
 
 import java.util.HashMap;
 
 import static java.lang.Thread.sleep;
 
 public class CoinListHandler {
-    public HashMap<CoinType, Coin> coinMap = new HashMap<>();
+    public static HashMap<CoinType, Coin> coinMap = new HashMap<>();
     public JsonParser jsonParser = new JsonParser();
+    public CoinUpdater coinUpdater = new CoinUpdater();
 
     // ANSI escape code 상수 정의
     public static final String RESET = "\u001B[0m";
     public static final String RED = "\u001B[31m";
     public static final String GREEN = "\u001B[32m";
 
-    public void setCoinMap(){
-        for (CoinType coinType : CoinType.values()) {
-            // 초기값은 "0" 또는 "N/A" 같은 기본값
-            Coin coin = new Coin(coinType, "0", "0", "EVEN");
-            coinMap.put(coinType, coin);
-        }
-    }
-
     public void drawCoinList(String data){
         // 코인에 업데이트 반영 시
-        if(updateCoinMap(data)){
+        if(coinUpdater.updateCoinMap(data,coinMap)){
             showCoinMap();
         }
         //clearConsole();
     }
 
-    public boolean updateCoinMap(String data){
-        CoinType coinType = CoinType.valueOf(jsonParser.extractJsonValue(data,"code").replace("-","_"));
-        String curPrice = jsonParser.extractJsonValue(data,"trade_price");
-        String changePrice = jsonParser.extractJsonValue(data,"change_price");
-        String change = jsonParser.extractJsonValue(data,"change");
-
-        Coin existCoin = coinMap.get(coinType);
-
-
-        if(!existCoin.getCurrentPrice().equals(curPrice) ||
-        !existCoin.getChangePrice().equals(changePrice) ||
-        !existCoin.getChange().equals(change))
-        {
-
-            Coin updatedCoin = new Coin(coinType,curPrice,changePrice,change);
-            coinMap.put(coinType,updatedCoin);
-
-            return true;
-        }
-
-        return false;
-    }
 
     public void showCoinMap(){
         StringBuilder sb = new StringBuilder();
@@ -98,5 +70,9 @@ public class CoinListHandler {
         for (int i = 0; i < 30; i++) {
             System.out.println();
         }
+    }
+
+    public void startDrawing() {
+        coinUpdater.setCoinMap(coinMap);
     }
 }

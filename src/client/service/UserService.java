@@ -8,7 +8,7 @@ import client.dto.*;
 
 public class UserService {
     // 사용자 프로필 초기화 메서드
-    public static UserProfileDTO initUserProfile() {
+    public UserProfileDTO initUserProfile() {
         // 로컬 데이터를 읽어와서 기존의 데이터가 있는지 검증
         UserProfileDTO userProfile = new UserProfileDTO();
 
@@ -37,7 +37,7 @@ public class UserService {
         return userProfile;
     }
 
-    public static void addTradingHistory(PositionDTO position) {
+    public void addTradingHistory(UserProfileDTO userProfile,PositionDTO position) {
         TradingHistoryDTO newTradingHistory = new TradingHistoryDTO(
                 position.getCoinName(),
                 position.getEntryTime(),
@@ -51,5 +51,10 @@ public class UserService {
         );
 
         userProfile.getTradingHistories().add(newTradingHistory);
+    }
+
+    public void getUserInfo(UserProfileDTO userProfile){
+        System.out.println("유저이름 : " + userProfile.getUsername());
+        System.out.println("잔고 : " + userProfile.getUserDeposit());
     }
 }
