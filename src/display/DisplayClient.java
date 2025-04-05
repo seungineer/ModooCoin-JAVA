@@ -1,7 +1,7 @@
 package display;
 
+import client.service.UserService;
 import display.component.CoinListHandler;
-import utils.CoinUpdater;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

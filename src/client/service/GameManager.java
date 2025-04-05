@@ -1,13 +1,16 @@
 package client.service;
 
 import client.dto.UserProfileDTO;
+import client.exception.NotValidUserNameException;
 import display.dto.Coin;
 import display.type.CoinType;
 import utils.CoinUpdater;
 
-import java.io.IOException;
+import static client.UpbitClient.SAVE_FILE;
+import static client.service.UserService.loadUserProfile;
 import java.util.HashMap;
 import java.util.Scanner;
+import client.exception.UserProfileNotFoundException;
 
 
 public class GameManager {
@@ -20,9 +23,9 @@ public class GameManager {
     public TradingService tradingService = new TradingService();
     public HistoryService historyService = new HistoryService();
 
-    public void gameInit(){
+    public void gameInit() throws UserProfileNotFoundException, NotValidUserNameException {
         System.out.println("모두의 코인 트레이딩 서비스 시작..");
-        userProfile = userService.initUserProfile();
+        userProfile = loadUserProfile(SAVE_FILE);
         coinUpdater.setCoinMap(coinMap);
     }
 
