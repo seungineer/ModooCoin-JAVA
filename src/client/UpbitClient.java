@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import static client.service.ConsoleManager.*;
 import static client.service.GameManager.userProfile;
 import static client.service.UserService.saveUserProfile;
 
@@ -14,6 +15,8 @@ public class UpbitClient {
     public static String SAVE_FILE = "user_profile.dat";
 
     public static void main(String[] args) {
+        printStart();
+
         String serverAddress = "localhost";
         int port = 9999;
         GameManager gameManager = new GameManager();
@@ -40,7 +43,7 @@ public class UpbitClient {
             }).start();
             if(gameManager.gameStart()){
                 saveUserProfile(userProfile, SAVE_FILE);
-                System.out.println("게임끝");
+                System.out.println("모두의 코인 서비스를 종료합니다.");
                 out.println("exit");
                 System.exit(0);
             }
