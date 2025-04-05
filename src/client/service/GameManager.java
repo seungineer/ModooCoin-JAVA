@@ -2,14 +2,18 @@ package client.service;
 
 import client.dto.UserProfileDTO;
 import client.exception.NotValidUserNameException;
+import client.exception.UserProfileSaveFailedException;
 import display.dto.Coin;
 import display.type.CoinType;
 import utils.CoinUpdater;
 
 import static client.UpbitClient.SAVE_FILE;
 import static client.service.UserService.loadUserProfile;
+import static client.service.UserService.saveUserProfile;
+
 import java.util.HashMap;
 import java.util.Scanner;
+
 import client.exception.UserProfileNotFoundException;
 
 
@@ -41,6 +45,11 @@ public class GameManager {
         while(isEnd){
             showMenu();
             isEnd = selectedMenu();
+            try {
+                saveUserProfile(userProfile, SAVE_FILE);
+            } catch (UserProfileSaveFailedException e) {
+                throw new RuntimeException(e);
+            }
         }
         return true;
     }
