@@ -11,6 +11,7 @@ import static client.UpbitClient.SAVE_FILE;
 import static client.service.UserService.loadUserProfile;
 import static client.service.UserService.saveUserProfile;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -68,7 +69,7 @@ public class GameManager {
         sb.append("트레이딩 메뉴\n");
         sb.append("[Long / Short / Clear]\n");
         sb.append("사용자 정보 메뉴\n");
-        sb.append("[Info / Position / History / DeleteHistory]\n");
+        sb.append("[Info / Position / History / DeleteHistory / DeleteAccount]\n");
         sb.append("게임 종료\n[Exit]\n");
         System.out.println(sb);
 
@@ -99,6 +100,9 @@ public class GameManager {
             case "DeleteHistory":
                 deleteHistory();
                 break;
+            case "DeleteAccount":
+                DeleteAccount();
+                break;
             case "Exit":
                 System.out.println("시스템 종료");
                 return false;
@@ -117,7 +121,19 @@ public class GameManager {
         historyService.deleteHistory(userProfile);
     }
 
-    private void getHistory(){
+    private void DeleteAccount() {
+        try {
+            UserService.deleteCurrentUser(userProfile, SAVE_FILE);
+            userProfile = loadUserProfile(SAVE_FILE);
+        } catch (UserProfileSaveFailedException e) {
+            throw new RuntimeException(e);
+        } catch (NotValidUserNameException e) {
+            throw new RuntimeException(e);
+        } catch (UserProfileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
         historyService.getTradingHistories(userProfile);
     }
 
