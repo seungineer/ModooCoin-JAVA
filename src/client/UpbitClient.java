@@ -7,7 +7,11 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import static client.service.GameManager.userProfile;
+import static client.service.UserService.saveUserProfile;
+
 public class UpbitClient {
+    public static String SAVE_FILE = "user_profile.dat";
 
     public static void main(String[] args) {
         String serverAddress = "localhost";
@@ -35,6 +39,7 @@ public class UpbitClient {
                 }
             }).start();
             if(gameManager.gameStart()){
+                saveUserProfile(userProfile, SAVE_FILE);
                 System.out.println("게임끝");
                 out.println("exit");
                 System.exit(0);

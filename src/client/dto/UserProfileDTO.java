@@ -1,8 +1,9 @@
 package client.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class UserProfileDTO {
+public class UserProfileDTO implements Serializable {
     private String username; // 이름
     private int userLevel; // 레벨
     private long userDeposit; // 잔액
@@ -11,8 +12,8 @@ public class UserProfileDTO {
     private ArrayList<TradingHistoryDTO> tradingHistories; // 과거 거래 기록
 
     // Constructor
-    public UserProfileDTO() {
-        username = "";
+    public UserProfileDTO(String inputUsername) {
+        username = inputUsername;
         userLevel = 1;
         userDeposit = 1_000_000_000;
         userProfit = 0;
