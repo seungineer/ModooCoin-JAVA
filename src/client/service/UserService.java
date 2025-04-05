@@ -70,4 +70,17 @@ public class UserService {
             throw new UserProfileSaveFailedException();
         }
     }
+
+    public static void deleteCurrentUser(UserProfileDTO userProfile, String fileName) throws UserProfileSaveFailedException {
+        File file = new File(fileName);
+        if (!file.exists()) {
+            System.out.println("기존 사용자 정보가 없습니다.");
+            return;
+        }
+        if (file.delete()) {
+            System.out.println("사용자 정보를 삭제하는데 성공했습니다.");
+        } else {
+            throw new UserProfileSaveFailedException();
+        }
+    }
 }

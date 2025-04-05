@@ -2,6 +2,7 @@ package client.service;
 
 import client.dto.UserProfileDTO;
 import client.exception.NotValidUserNameException;
+import client.exception.UserProfileSaveFailedException;
 import display.dto.Coin;
 import display.type.CoinType;
 import utils.CoinUpdater;
@@ -9,8 +10,12 @@ import utils.CoinUpdater;
 import static client.UpbitClient.SAVE_FILE;
 import static client.service.UserService.loadUserProfile;
 import static client.service.ConsoleManager.*;
+import static client.service.UserService.saveUserProfile;
+
+import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
+
 import client.exception.UserProfileNotFoundException;
 import client.exception.NotValidUserCommandException;
 
@@ -43,6 +48,11 @@ public class GameManager {
         printMain();
         while(isEnd){
             isEnd = selectedMenu();
+            try {
+                saveUserProfile(userProfile, SAVE_FILE);
+            } catch (UserProfileSaveFailedException e) {
+                throw new RuntimeException(e);
+            }
         }
         return true;
     }
@@ -96,6 +106,9 @@ public class GameManager {
             case "뒤로 가기":
                 printMain();
                 break;
+            case "DeleteAccount":
+                DeleteAccount();
+                break;
             case "종료하기":
                 return false;
             default:
@@ -113,7 +126,19 @@ public class GameManager {
         historyService.deleteHistory(userProfile);
     }
 
-    private void getHistory(){
+    private void DeleteAccount() {
+        try {
+            UserService.deleteCurrentUser(userProfile, SAVE_FILE);
+            userProfile = loadUserProfile(SAVE_FILE);
+        } catch (UserProfileSaveFailedException e) {
+            throw new RuntimeException(e);
+        } catch (NotValidUserNameException e) {
+            throw new RuntimeException(e);
+        } catch (UserProfileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
         historyService.getTradingHistories(userProfile);
     }
 
