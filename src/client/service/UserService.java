@@ -51,9 +51,7 @@ public class UserService {
                 LocalDateTime.now().toString(),
                 position.getCurrentPrice(coinMap),
                 position.getOrderType(),
-                (position.getOrderType() == "Long" ? 1 : -1)
-                        * ((position.getCurrentPrice(coinMap) - position.getEntryPrice())
-                        * position.getQuantity())
+                position.getProfit(coinMap)
         );
 
         userProfile.getTradingHistories().add(newTradingHistory);

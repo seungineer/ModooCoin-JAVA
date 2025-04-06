@@ -43,7 +43,7 @@ public class TradingService {
                 userProfile.getUserDeposit() +
                         targetPosition.getCurrentPrice(coinMap) * targetPosition.getQuantity()
         );
-
+        userProfile.setUserProfit(targetPosition.getProfit(coinMap));
         userProfile.getPositions().remove(index);
     }
 

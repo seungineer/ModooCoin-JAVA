@@ -95,14 +95,6 @@ public class GameManager {
         return true;
     }
 
-    private void getPosition() {
-        tradingService.getPosition(userProfile);
-    }
-
-    private void deleteHistory(){
-        historyService.deleteHistory(userProfile);
-    }
-
     private void DeleteAccount() {
         try {
             UserService.deleteCurrentUser(userProfile, SAVE_FILE);
@@ -114,10 +106,6 @@ public class GameManager {
         } catch (UserProfileNotFoundException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    private void getUserInfo() {
-        userService.getUserInfo(userProfile);
     }
 
     private void clearPosition() {
