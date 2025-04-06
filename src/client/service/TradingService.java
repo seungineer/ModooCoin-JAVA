@@ -1,13 +1,19 @@
 package client.service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+
 import client.dto.PositionDTO;
+import client.dto.UserProfileDTO;
+
 import static client.service.UserService.*;
 
-import static client.test.Test.userProfile;
 
 public class TradingService {
-    public static void enterPosition(String coinName, long quantity, long entryPrice, String orderType) {
+    HistoryService historyService = new HistoryService();
+    UserService userService = new UserService();
+
+    public void enterPosition(UserProfileDTO userProfile,String coinName, long quantity, long entryPrice, String orderType) {
         if (userProfile.getUserDeposit() < entryPrice * quantity) {
             System.out.println("계좌에 잔액이 부족합니다.");
             return;
@@ -27,9 +33,9 @@ public class TradingService {
         userProfile.setUserDeposit(userProfile.getUserDeposit() - entryPrice * quantity);
     }
 
-    public static void closePosition(int index) {
+    public void closePosition(UserProfileDTO userProfile,int index) {
         PositionDTO targetPosition = userProfile.getPositions().get(index);
-        addTradingHistory(targetPosition);
+        userService.addTradingHistory(userProfile,targetPosition);
 
         userProfile.setUserDeposit(
                 userProfile.getUserDeposit() +
@@ -37,5 +43,15 @@ public class TradingService {
         );
 
         userProfile.getPositions().remove(index);
+    }
+
+    public void getPosition(UserProfileDTO userProfileDTO){
+        ArrayList<PositionDTO> positions = userProfileDTO.getPositions();
+        if(positions.isEmpty()){
+            System.out.println("포지션 내역이 존재하지 않습니다!");
+        }
+        for(PositionDTO position : positions){
+            System.out.println(position);
+        }
     }
 }
