@@ -13,10 +13,10 @@ public class TradingService {
     HistoryService historyService = new HistoryService();
     UserService userService = new UserService();
 
-    public void enterPosition(UserProfileDTO userProfile,String coinName, long quantity, long entryPrice, String orderType) {
+    public boolean enterPosition(UserProfileDTO userProfile,String coinName, long quantity, long entryPrice, String orderType) {
         if (userProfile.getUserDeposit() < entryPrice * quantity) {
             System.out.println("계좌에 잔액이 부족합니다.");
-            return;
+            return false;
         }
 
         PositionDTO newPosition = new PositionDTO(
@@ -31,6 +31,7 @@ public class TradingService {
 
         userProfile.getPositions().add(newPosition);
         userProfile.setUserDeposit(userProfile.getUserDeposit() - entryPrice * quantity);
+        return true;
     }
 
     public void closePosition(UserProfileDTO userProfile,int index) {

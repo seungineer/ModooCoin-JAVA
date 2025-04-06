@@ -80,9 +80,6 @@ public class GameManager {
             case "거래 기록":
                 printHistory();
                 break;
-//            case "DeleteHistory":
-//                deleteHistory();
-//                break;
             case "뒤로 가기":
                 printMain();
                 break;
@@ -125,15 +122,15 @@ public class GameManager {
 
     private void clearPosition() {
         if(userProfile.getPositions().isEmpty()){
-//            System.out.println("현재 포지션이 존재하지않습니다.");
             return;
         }
-        // 포지션 목록 보여주기
-//        historyService.getCurrentPositions(userProfile);
 
         // 포지션 청산하기
         System.out.println("청산하기 원하는 포지션의 번호를 입력해주세요.");
         int num = getInteger();
+        if(num == -1){
+            return;
+        }
         if (num <= 0 || num > userProfile.getPositions().size()) {
             System.out.println("해당 번호의 포지션은 존재하지 않습니다.");
             return;
@@ -144,7 +141,7 @@ public class GameManager {
     }
 
     public void enterPosition(String orderType) {
-        System.out.print("코인이름을 입력해주세요: ");
+        System.out.print("코인 이름을 입력해주세요: ");
         CoinType coinName = getValidCoinType();
 
         System.out.print("수량을 입력해주세요: ");
@@ -156,14 +153,18 @@ public class GameManager {
         }
 
         Coin coin = coinMap.get(coinName);
-        tradingService.enterPosition(userProfile,coin.getCoinName().toString(), quantity, coin.getCurrentPrice(),orderType);
+        if(!tradingService.enterPosition(userProfile,coin.getCoinName().toString(), quantity, coin.getCurrentPrice(),orderType))
+            return;
         System.out.printf("%s 포지션 진입 완료\n", orderType);
     }
 
     public int getInteger(){
         while(true){
             try{
-                return Integer.parseInt(sc.nextLine());
+                String str = sc.nextLine();
+                if(str.equals("뒤로 가기"))
+                    return -1;
+                return Integer.parseInt(str);
             }catch (NumberFormatException e){
                 System.out.println("숫자를 옳바르게 입력해주세요.");
             }
@@ -187,6 +188,7 @@ public class GameManager {
                 return CoinType.valueOf(coinName);
             } catch (IllegalArgumentException e) {
                 System.out.println("❌ 존재하지 않는 코인입니다. 다시 입력해주세요.");
+                System.out.print("코인 이름을 입력해주세요: ");
             }
         }
     }

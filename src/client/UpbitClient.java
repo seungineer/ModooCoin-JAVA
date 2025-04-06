@@ -43,6 +43,7 @@ public class UpbitClient {
             }).start();
             if(gameManager.gameStart()){
                 saveUserProfile(userProfile, SAVE_FILE);
+                System.out.println("사용자 정보를 저장하는데 성공했습니다.");
                 System.out.println("모두의 코인 서비스를 종료합니다.");
                 out.println("exit");
                 System.exit(0);

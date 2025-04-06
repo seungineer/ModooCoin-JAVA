@@ -64,7 +64,6 @@ public class UserService {
 
     public static void saveUserProfile(UserProfileDTO userProfile, String fileName) throws UserProfileSaveFailedException {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
-            System.out.println("사용자 정보를 저장하는데 성공했습니다.");
             oos.writeObject(userProfile);
         } catch (Exception e) {
             throw new UserProfileSaveFailedException();
