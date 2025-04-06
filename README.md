@@ -56,8 +56,8 @@ Long, Short 포지션 모두 취할 수 있기에 현물, 선물 트레이딩 �
 
 ### 거래 History 확인
 
-<img width="775" alt="Image" src="https://github.com/user-attachments/assets/0b78b5fc-8028-4b87-9bee-82f0fc2027d9" />
+<img width="826" alt="image" src="https://github.com/user-attachments/assets/181d6520-cc16-45e4-a982-1383d6d64eea" />
 
 ### 현재 보유 포지션 확인
 
-<img width="775" alt="Image" src="https://github.com/user-attachments/assets/158adc0d-59a0-456e-8094-0f84db0e73fe" />
+<img width="831" alt="image" src="https://github.com/user-attachments/assets/500ca892-adc1-42d6-92f0-d6aee3b94442" />
