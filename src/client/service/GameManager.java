@@ -57,26 +57,6 @@ public class GameManager {
         return true;
     }
 
-    /*
-        1. Long / short
-        2. 청산하기
-        3. 히스토리 보기
-        4. 히스토리 지우기
-        5. 유저 정보 보기
-     */
-//    public void showMenu(){
-//        StringBuilder sb = new StringBuilder();
-//        sb.append("====================================\n");
-//        sb.append("원하시는 서비스를 입력해주세요 ! \n");
-//        sb.append("트레이딩 메뉴\n");
-//        sb.append("[Long / Short / Clear]\n");
-//        sb.append("사용자 정보 메뉴\n");
-//        sb.append("[Info / Position / History / DeleteHistory]\n");
-//        sb.append("게임 종료\n[Exit]\n");
-//        System.out.println(sb);
-//
-//    }
-
     public boolean selectedMenu() {
         System.out.print("메뉴 입력 : ");
         String input = sc.nextLine().trim();

@@ -17,6 +17,11 @@ public class CoinUpdater {
     }
 
     public boolean updateCoinMap(String data,HashMap<CoinType, Coin> coinMap){
+        String codeValue = jsonParser.extractJsonValue(data, "code");
+        if (codeValue == null) {
+            return false;
+        }
+
         CoinType coinType = CoinType.valueOf(jsonParser.extractJsonValue(data,"code").replace("-","_"));
         String curPriceStr = jsonParser.extractJsonValue(data,"trade_price");
         String changePriceStr = jsonParser.extractJsonValue(data,"change_price");
@@ -44,6 +49,10 @@ public class CoinUpdater {
     }
 
     private long parseToLong(String value) {
+        if (value == null || value.trim().isEmpty()) {
+            return 0;
+        }
+
         try {
             double doubleValue = Double.parseDouble(value);
             return (long) doubleValue;
