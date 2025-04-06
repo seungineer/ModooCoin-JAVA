@@ -1,4 +1,4 @@
-package display.utils;
+package utils;
 
 public class JsonParser {
     /*

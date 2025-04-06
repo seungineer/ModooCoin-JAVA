@@ -1,8 +1,13 @@
 package client.dto;
 
-import java.time.LocalDateTime;
+import display.dto.Coin;
+import display.type.CoinType;
 
-public class PositionDTO {
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+
+public class PositionDTO implements Serializable {
     private String coinName; // 코인명
     private long quantity; // 매수량
     private long entryPrice; // 진입가
@@ -49,16 +54,17 @@ public class PositionDTO {
         return entryTime;
     }
 
-    public long getCurrentPrice() {
-        return currentPrice;
+    public long getCurrentPrice(HashMap<CoinType, Coin> coinMap) {
+        return coinMap.get(CoinType.valueOf(this.coinName)).getCurrentPrice();
     }
 
     public String getOrderType() {
         return orderType;
     }
 
-    public long getProfit() {
-        return profit;
+    public long getProfit(HashMap<CoinType, Coin> coinMap){
+        return this.orderType.equals("Short") ? this.entryPrice - coinMap.get(CoinType.valueOf(this.coinName)).getCurrentPrice()
+                : coinMap.get(CoinType.valueOf(this.coinName)).getCurrentPrice() - this.entryPrice;
     }
 
     // Setter
@@ -88,5 +94,18 @@ public class PositionDTO {
 
     public void setProfit(long profit) {
         this.profit = profit;
+    }
+
+    @Override
+    public String toString() {
+        return "PositionDTO{" +
+                "coinName='" + coinName + '\'' +
+                ", quantity=" + quantity +
+                ", entryPrice=" + entryPrice +
+                ", entryTime='" + entryTime + '\'' +
+                ", currentPrice=" + currentPrice +
+                ", orderType='" + orderType + '\'' +
+                ", profit=" + profit +
+                '}';
     }
 }

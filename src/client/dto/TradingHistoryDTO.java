@@ -1,8 +1,9 @@
 package client.dto;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class TradingHistoryDTO {
+public class TradingHistoryDTO implements Serializable {
     private String coinName; // 코인명
     private String entryTime; // 진입날짜
     private long entryPrice; // 진입가
