@@ -14,7 +14,7 @@ public class CoinListHandler {
     public JsonParser jsonParser = new JsonParser();
     public CoinUpdater coinUpdater = new CoinUpdater();
 
-    // ANSI escape code 상수 정의
+    // ANSI 컬러 상수 정의
     public static final String RESET = "\u001B[0m";
     public static final String RED = "\u001B[31m";
     public static final String GREEN = "\u001B[32m";
@@ -32,7 +32,7 @@ public class CoinListHandler {
         StringBuilder sb = new StringBuilder();
 
         sb.append(String.format("%-10s | %-23s | %-20s\n", "COINNAME", "CURPRICE", "CHANGEPRICE"));
-        sb.append("---------------------------------------------\n");
+        sb.append("--------------------------------------------------------------------\n");
 
         for(CoinType coinType : coinMap.keySet()){
             Coin coin = coinMap.get(coinType);
@@ -66,11 +66,6 @@ public class CoinListHandler {
         );
     }
 
-    public void clearConsole(){
-        for (int i = 0; i < 30; i++) {
-            System.out.println();
-        }
-    }
 
     public void startDrawing() {
         coinUpdater.setCoinMap(coinMap);

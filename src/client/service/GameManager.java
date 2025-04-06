@@ -43,7 +43,7 @@ public class GameManager {
         }
     }
 
-    public boolean gameStart(){
+    public boolean gameStart() throws InterruptedException {
         boolean isEnd = true;
         printMain();
         while(isEnd){
@@ -57,7 +57,7 @@ public class GameManager {
         return true;
     }
 
-    public boolean selectedMenu() {
+    public boolean selectedMenu() throws InterruptedException {
         System.out.print("메뉴 입력 : ");
         String input = sc.nextLine().trim();
         switch (input) {
@@ -85,6 +85,7 @@ public class GameManager {
                 break;
             case "계정 삭제":
                 DeleteAccount();
+                printMain();
                 break;
             case "종료하기":
                 return false;
@@ -108,7 +109,7 @@ public class GameManager {
         }
     }
 
-    private void clearPosition() {
+    private void clearPosition() throws InterruptedException {
         if(userProfile.getPositions().isEmpty()){
             return;
         }
@@ -117,18 +118,23 @@ public class GameManager {
         System.out.println("청산하기 원하는 포지션의 번호를 입력해주세요.");
         int num = getInteger();
         if(num == -1){
+            printMain();
             return;
         }
         if (num <= 0 || num > userProfile.getPositions().size()) {
             System.out.println("해당 번호의 포지션은 존재하지 않습니다.");
+            Thread.sleep(1000);
+            printMain();
             return;
         }
         tradingService.closePosition(userProfile,num - 1);
 
         System.out.println("포지션 청산 완료.");
+        Thread.sleep(1000);
+        printMain();
     }
 
-    public void enterPosition(String orderType) {
+    public void enterPosition(String orderType) throws InterruptedException {
         System.out.print("코인 이름을 입력해주세요: ");
         CoinType coinName = getValidCoinType();
 
@@ -144,6 +150,8 @@ public class GameManager {
         if(!tradingService.enterPosition(userProfile,coin.getCoinName().toString(), quantity, coin.getCurrentPrice(),orderType))
             return;
         System.out.printf("%s 포지션 진입 완료\n", orderType);
+        Thread.sleep(1000);
+        printMain();
     }
 
     public int getInteger(){

@@ -25,7 +25,7 @@ public class ConsoleManager {
         System.out.printf( "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\n" +
                             "|　모두의 코인 (메인)　　　　　　　　　　　　　　[－][口][×] |\n" +
                             "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|\n" +
-                            "|　%s님, 환영합니다 !        　　　　　　　　　　　　　　　　\n" +
+                            "|　%s님, 환영합니다 !        　　　　　　　　　　　　|\n" +
                             "|　아래의 메뉴 중 원하시는 서비스를 입력해주세요.        　|\n" +
                             "|　        　　　　　　　　　　　　　　　　　　　　　　　　 　|\n" +
                             "| 　＿＿＿＿＿＿　　 　 ＿＿＿＿＿＿　　　 　＿＿＿＿＿＿＿　　|\n" +
@@ -45,7 +45,7 @@ public class ConsoleManager {
         System.out.printf( "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\n" +
                 "|　모두의 코인 (메인)　　　　　　　　　　　　　　[－][口][×] |\n" +
                 "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|\n" +
-                "|　%s님, 환영합니다 !        　　　　　　　　　　　　　　　　\n" +
+                "|　%s님, 환영합니다 !        　　　　　　　　　　　　　　　　|\n" +
                 "|　아래의 메뉴 중 원하시는 서비스를 입력해주세요.        　|\n" +
                 "|　        　　　　　　　　　　　　　　　　　　　　　　　　 　|\n" +
                 "| 　＿＿＿＿＿＿　　 　 ＿＿＿＿＿＿　　　 　＿＿＿＿＿＿＿　　|\n" +
@@ -88,7 +88,7 @@ public class ConsoleManager {
                 // 날짜 포맷팅
                 String entryDate = position.getEntryTime().split("T")[0];
 
-                System.out.printf(" %d | %-8s | %-8s | %,12d | %,12d | %,7d | %s%,12d%s |\n",
+                System.out.printf("  %2d   | %-9s | %-9s | %,15d | %,13d | %,11d | %s%,10d%s \n",
                         i + 1,
                         position.getCoinName(),
                         position.getOrderType(),
@@ -149,7 +149,7 @@ public class ConsoleManager {
                 // 통화 포맷 설정
                 NumberFormat currencyFormat = NumberFormat.getNumberInstance(Locale.KOREA);
 
-                System.out.printf("| %-8s | %-8s | %-18s | %,10d | %,10d | %s%,10d%s |\n",
+                System.out.printf("| %-9s | %-9s | %-16s | %,13d | %,13d | %s%,10d%s \n",
                         history.getCoinName(),
                         history.getOrderType(),
                         history.getCloseTime() != null ? history.getCloseTime().split("T")[0] : "진행중",
