@@ -111,15 +111,15 @@ public class ConsoleManager {
     public static void printUserInfo() {
         printVoid();
         System.out.printf("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\n" +
-                "　모두의 코인 (내 정보)　　　　　　　　　　　　[－][口][×] \n" +
-                "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\n" +
-                "    이름: %s\n" +
-                "    잔고: %s\n" +
-                "    수익: %s\n" +
-                "　 　　　　　　　     ＿＿＿＿＿＿＿＿　　　　　　　　　　　　 \n" +
-                " 　　　　　　　　     |  뒤로 가기　 |　　　　　　　　　　  \n" +
-                " 　　　　　　　　     ￣￣￣￣￣￣￣￣　　　　　　　　　　　　 \n" +
-                "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\n",
+                        "　모두의 코인 (내 정보)　　　　　　　　　　　　[－][口][×] \n" +
+                        "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\n" +
+                        "    이름: %s\n" +
+                        "    잔고: %s\n" +
+                        "    수익: %s\n" +
+                        "　 　　　 ＿＿＿＿＿＿＿＿　　　      ＿＿＿＿＿＿＿＿　　　　 \n" +
+                        " 　　　　|  뒤로 가기　 |         |  계정 삭제　 |　　  \n" +
+                        " 　　　　 ￣￣￣￣￣￣￣￣　　　      ￣￣￣￣￣￣￣￣　　　　 \n" +
+                        "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\n",
                 userProfile.getUsername(),
                 toLocaleString(userProfile.getUserDeposit()),
                 toLocaleString(userProfile.getUserProfit()));

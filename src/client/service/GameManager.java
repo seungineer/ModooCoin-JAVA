@@ -106,7 +106,7 @@ public class GameManager {
             case "뒤로 가기":
                 printMain();
                 break;
-            case "DeleteAccount":
+            case "계정 삭제":
                 DeleteAccount();
                 break;
             case "종료하기":
