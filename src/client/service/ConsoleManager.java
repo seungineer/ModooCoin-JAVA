@@ -13,36 +13,36 @@ import static client.service.GameManager.userProfile;
 public class ConsoleManager {
     public static void printStart() {
         printVoid();
-        System.out.println( "  __  __           _                ____      _         _ _ \n" +
-                            " |  \\/  | ___   __| | ___   ___    / ___|___ (_)_ __   | | |\n" +
-                            " | |\\/| |/ _ \\ / _` |/ _ \\ / _ \\  | |   / _ \\| | '_ \\  | | |\n" +
-                            " | |  | | (_) | (_| | (_) | (_) | | |__| (_) | | | | | |_|_|\n" +
-                            " |_|  |_|\\___/ \\__,_|\\___/ \\___/   \\____\\___/|_|_| |_| (_|_)");
+        System.out.println("  __  __           _                ____      _         _ _ \n" +
+                " |  \\/  | ___   __| | ___   ___    / ___|___ (_)_ __   | | |\n" +
+                " | |\\/| |/ _ \\ / _` |/ _ \\ / _ \\  | |   / _ \\| | '_ \\  | | |\n" +
+                " | |  | | (_) | (_| | (_) | (_) | | |__| (_) | | | | | |_|_|\n" +
+                " |_|  |_|\\___/ \\__,_|\\___/ \\___/   \\____\\___/|_|_| |_| (_|_)");
     }
 
     public static void printMain() {
         printVoid();
-        System.out.printf( "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\n" +
-                            "|　모두의 코인 (메인)　　　　　　　　　　　　　　[－][口][×] |\n" +
-                            "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|\n" +
-                            "|　%s님, 환영합니다 !        　　　　　　　　　　　　|\n" +
-                            "|　아래의 메뉴 중 원하시는 서비스를 입력해주세요.        　|\n" +
-                            "|　        　　　　　　　　　　　　　　　　　　　　　　　　 　|\n" +
-                            "| 　＿＿＿＿＿＿　　 　 ＿＿＿＿＿＿　　　 　＿＿＿＿＿＿＿　　|\n" +
-                            "|  |  Long  |　　  |  Short |　　  |  청산하기  | 　|\n" +
-                            "| 　￣￣￣￣￣￣　　  　￣￣￣￣￣￣　　　 　￣￣￣￣￣￣￣　　|\n" +
-                            "| 　＿＿＿＿＿＿＿　  　＿＿＿＿＿＿　　　 ＿＿＿＿＿＿＿＿　　|\n" +
-                            "|  | 내 포지션 |　 　| 내 정보  |　 　|  거래 기록  |  |\n" +
-                            "| 　￣￣￣￣￣￣￣　  　￣￣￣￣￣￣　　 　￣￣￣￣￣￣￣￣　　|\n" +
-                            "|　　　　　　　　     ＿＿＿＿＿＿＿＿　　　　　　　　　　　　 |\n" +
-                            "|　　　　　　　　     |  종료하기　 |　　　　　　　　　　　  |\n" +
-                            "|　　　　　　　　     ￣￣￣￣￣￣￣￣　　　　　　　　　　　　 |\n" +
-                            "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\n", userProfile.getUsername());
+        System.out.printf("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\n" +
+                "|　모두의 코인 (메인)　　　　　　　　　　　　　　[－][口][×] |\n" +
+                "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|\n" +
+                "|　%s님, 환영합니다 !        　　　　　　　　　　　　|\n" +
+                "|　아래의 메뉴 중 원하시는 서비스를 입력해주세요.        　|\n" +
+                "|　        　　　　　　　　　　　　　　　　　　　　　　　　 　|\n" +
+                "| 　＿＿＿＿＿＿　　 　 ＿＿＿＿＿＿　　　 　＿＿＿＿＿＿＿　　|\n" +
+                "|  |  Long  |　　  |  Short |　　  |  청산하기  | 　|\n" +
+                "| 　￣￣￣￣￣￣　　  　￣￣￣￣￣￣　　　 　￣￣￣￣￣￣￣　　|\n" +
+                "| 　＿＿＿＿＿＿＿　  　＿＿＿＿＿＿　　　 ＿＿＿＿＿＿＿＿　　|\n" +
+                "|  | 내 포지션 |　 　| 내 정보  |　 　|  거래 기록  |  |\n" +
+                "| 　￣￣￣￣￣￣￣　  　￣￣￣￣￣￣　　 　￣￣￣￣￣￣￣￣　　|\n" +
+                "|　　　　　　　　     ＿＿＿＿＿＿＿＿　　　　　　　　　　　　 |\n" +
+                "|　　　　　　　　     |  종료하기　 |　　　　　　　　　　　  |\n" +
+                "|　　　　　　　　     ￣￣￣￣￣￣￣￣　　　　　　　　　　　　 |\n" +
+                "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\n", userProfile.getUsername());
     }
 
     public static void printTrade() {
         printVoid();
-        System.out.printf( "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\n" +
+        System.out.printf("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\n" +
                 "|　모두의 코인 (메인)　　　　　　　　　　　　　　[－][口][×] |\n" +
                 "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|\n" +
                 "|　%s님, 환영합니다 !        　　　　　　　　　　　　　　　　|\n" +
@@ -64,13 +64,13 @@ public class ConsoleManager {
         printVoid();
         ArrayList<PositionDTO> positionList = userProfile.getPositions();
 
-        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
-        System.out.println(" 　모두의 코인 (내 포지션) 　　　　　　　　　　　　　　　　　　　　                          [－][口][×]     ");
-        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
+        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
+        System.out.println(" 　모두의 코인 (내 포지션) 　　　　　　　　　　　　　　　　　　　　                                   [－][口][×]  ");
+        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
 
         // 테이블 헤더
-        System.out.println("  번호  |   코인명   |   포지션   |      진입가      |     현재가     |     수량     |      손익       ");
-        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
+        System.out.println("  번호  |   코인명   |   포지션    |      진입가      |     현재가     |     수량     |      손익       ");
+        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
 
         if (positionList.isEmpty()) {
             System.out.println("                             보유 중인 포지션이 없습니다                                 \n");
@@ -105,7 +105,7 @@ public class ConsoleManager {
         System.out.println(" 　　　　　　　　                        ＿＿＿＿＿＿＿＿　　　　　　　　　　　　                 ");
         System.out.println(" 　　　　　　　　                       |  뒤로 가기　 |　　　　　　　　　　　                  ");
         System.out.println(" 　　　　　　　　                        ￣￣￣￣￣￣￣￣　　　　　　　　　　　　                  ");
-        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
+        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
     }
 
     public static void printUserInfo() {
@@ -129,13 +129,13 @@ public class ConsoleManager {
         printVoid();
         ArrayList<TradingHistoryDTO> historyList = userProfile.getTradingHistories();
 
-        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
-        System.out.println(" 　모두의 코인 (거래 기록)　　　　　　　　　　　　　　　　　　　　                          [－][口][×]     ");
-        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
+        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
+        System.out.println(" 　모두의 코인 (거래 기록)　　　　　　　　　　　　　　　　　　　　                                    [－][口][×]  ");
+        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
 
         // 테이블 헤더
-        System.out.println("    코인명   |   포지션   |      청산일자      |     진입가     |     청산가     |      손익       ");
-        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
+        System.out.println("    코인명   |   포지션    |      청산일자      |     진입가      |     청산가      |      손익       ");
+        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
 
         if (historyList.isEmpty()) {
             System.out.println("                             거래 기록이 없습니다                                 \n");
@@ -149,7 +149,7 @@ public class ConsoleManager {
                 // 통화 포맷 설정
                 NumberFormat currencyFormat = NumberFormat.getNumberInstance(Locale.KOREA);
 
-                System.out.printf("| %-9s | %-9s | %-16s | %,13d | %,13d | %s%,10d%s \n",
+                System.out.printf("  %-9s | %-9s | %-16s | %,13d | %,13d | %s%,10d%s \n",
                         history.getCoinName(),
                         history.getOrderType(),
                         history.getCloseTime() != null ? history.getCloseTime().split("T")[0] : "진행중",
@@ -161,10 +161,10 @@ public class ConsoleManager {
             }
         }
 
-        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
+        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
 
         // 페이지네이션 또는 요약 정보
-        int totalProfit = historyList.stream().mapToInt(h -> (int)h.getBenefit()).sum();
+        int totalProfit = historyList.stream().mapToInt(h -> (int) h.getBenefit()).sum();
         String totalProfitColor = totalProfit >= 0 ? "\u001B[32m" : "\u001B[31m";
         System.out.printf("  총 거래: %-3d건                                  총 손익: %s%,10d%s     \n",
                 historyList.size(), totalProfitColor, totalProfit, "\u001B[0m");
@@ -173,7 +173,7 @@ public class ConsoleManager {
         System.out.println(" 　　　　　　　　                        ＿＿＿＿＿＿＿＿　　　　　　　　　　　　                 ");
         System.out.println(" 　　　　　　　　                       |  뒤로 가기　 |　　　　　　　　　　　                  ");
         System.out.println(" 　　　　　　　　                        ￣￣￣￣￣￣￣￣　　　　　　　　　　　　                  ");
-        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
+        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣");
     }
 
 //    public static void printExit() {
