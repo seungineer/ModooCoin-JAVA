@@ -8,7 +8,7 @@ Long, Short 포지션 모두 취할 수 있기에 현물, 선물 트레이딩 �
 |  \/  | ___   __| | ___   ___    / ___|___ (_)_ __   | | |
 | |\/| |/ _ \ / _` |/ _ \ / _ \  | |   / _ \| | '_ \  | | |
 | |  | | (_) | (_| | (_) | (_) | | |__| (_) | | | | | |_|_|
-|_|  |_|\___/ \__, _|\___/ \___/   \____\___/|_|_| |_| (_|_)
+|_|  |_|\___/ \__, _|\___/ \___/  \____\___/|_|_| |_| (_|_)
 ```
 
 ## 주요 기능
@@ -16,28 +16,39 @@ Long, Short 포지션 모두 취할 수 있기에 현물, 선물 트레이딩 �
 - 트레이딩
     - Long: 선택한 코인의 롱 포지션 진입
     - Short: 선택한 코인의 숏 포지션 진입
-    - Clear: 보유 포지션 청산
+    - 청산 하기: 보유 포지션 청산
 - 사용자 정보
-    - Info: 사용자 이름 / 실현손익 / 자본금 확인
-    - Position: 현재 포지션 확인
-    - History: 트레이딩 거래 기록 확인
-    - DeleteHistory: 트레이딩 거래 기록 지우기
-    - DeleteAccount: 현재 사용자 정보 지우기
+    - 내 정보: 사용자 이름 / 잔고 확인 / 수익 확인
+        - 계정 삭제: 현재 사용자 정보 지우기
+    - 내 포지션: 현재 보유 포지션 확인
+    - 거래 기록: 트레이딩 거래 기록 확인
 
 ## 실행 방법
 
 1. 해당 Repository의 main branch clone
-2. /server/Main.java 실행
+2. `src/server/Main.java` 실행
     - Upbit WebSocket 연결
-3. /display/DisplayClient.java 실행
+3. `/display/DisplayClient.java` 실행
     - 실시간 코인별 Upbit 가격 정보 출력
-4. /client/UpbitClient.java 실행
+4. `/client/UpbitClient.java` 실행
     - 서비스 Client
 5. UpbitClient CLI 조작
 
-## 시연 이미지
+## 시연 영상
+
+![Image](https://github.com/user-attachments/assets/08506c5d-e847-4516-9004-32c13389b9c3)
+
+> `Long` → Long 포지션 진입(BTC, 3개) → `내 포지션` → `청산하기` → 해당 포지션 청산 → `내 포지션`
+
+### 메인 메뉴
+
+<img width="412" alt="Image" src="https://github.com/user-attachments/assets/5e630fc2-25f9-4fbe-a007-e62caf4951a7" />
+
+- `Long` | `Short` | `청산하기` | `내 포지션` | `내 정보` | `거래 기록` | `종료하기`
 
 ### 트레이딩
+
+<img width="575" alt="Image" src="https://github.com/user-attachments/assets/57b92582-ebd6-456f-b1c7-56a24aeb413e" />
 
 ### 실시간 코인 가격 정보
 
@@ -45,6 +56,8 @@ Long, Short 포지션 모두 취할 수 있기에 현물, 선물 트레이딩 �
 
 ### 거래 History 확인
 
-![Image](https://github.com/user-attachments/assets/ed4028c6-b349-458f-bde1-5d726c684692)
+<img width="775" alt="Image" src="https://github.com/user-attachments/assets/0b78b5fc-8028-4b87-9bee-82f0fc2027d9" />
 
 ### 현재 보유 포지션 확인
+
+<img width="775" alt="Image" src="https://github.com/user-attachments/assets/158adc0d-59a0-456e-8094-0f84db0e73fe" />
