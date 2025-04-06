@@ -6,6 +6,8 @@ import client.dto.PositionDTO;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
+
+import static client.service.GameManager.coinMap;
 import static client.service.GameManager.userProfile;
 
 public class ConsoleManager {
@@ -78,12 +80,10 @@ public class ConsoleManager {
                 PositionDTO position = positionList.get(i);
 
                 // 손익에 따라 색상 지정 (ANSI 이스케이프 코드)
-                String profitColor = position.getProfit() >= 0 ? "\u001B[32m" : "\u001B[31m"; // 양수면 녹색, 음수면 적색
+                //
+                long currProfit = position.getProfit(coinMap);
+                String profitColor = currProfit >= 0 ? "\u001B[32m" : "\u001B[31m"; // 양수면 녹색, 음수면 적색
                 String resetColor = "\u001B[0m";
-
-                // 포맷팅된 가격 변화율 계산 (%)
-                double priceChangeRate = ((double)position.getCurrentPrice() / position.getEntryPrice() - 1) * 100;
-                String changeRateFormatted = String.format("%.2f%%", priceChangeRate);
 
                 // 날짜 포맷팅
                 String entryDate = position.getEntryTime().split("T")[0];
@@ -93,10 +93,10 @@ public class ConsoleManager {
                         position.getCoinName(),
                         position.getOrderType(),
                         position.getEntryPrice(),
-                        position.getCurrentPrice(),
+                        position.getCurrentPrice(coinMap),
                         position.getQuantity(),
                         profitColor,
-                        position.getProfit(),
+                        currProfit,
                         resetColor);
             }
         }

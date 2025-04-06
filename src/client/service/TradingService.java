@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import client.dto.PositionDTO;
 import client.dto.UserProfileDTO;
 
+import static client.service.GameManager.coinMap;
 import static client.service.UserService.*;
 
 
@@ -40,7 +41,7 @@ public class TradingService {
 
         userProfile.setUserDeposit(
                 userProfile.getUserDeposit() +
-                        targetPosition.getCurrentPrice() * targetPosition.getQuantity()
+                        targetPosition.getCurrentPrice(coinMap) * targetPosition.getQuantity()
         );
 
         userProfile.getPositions().remove(index);

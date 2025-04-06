@@ -1,7 +1,11 @@
 package client.dto;
 
+import display.dto.Coin;
+import display.type.CoinType;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 
 public class PositionDTO implements Serializable {
     private String coinName; // 코인명
@@ -50,16 +54,17 @@ public class PositionDTO implements Serializable {
         return entryTime;
     }
 
-    public long getCurrentPrice() {
-        return currentPrice;
+    public long getCurrentPrice(HashMap<CoinType, Coin> coinMap) {
+        return coinMap.get(CoinType.valueOf(this.coinName)).getCurrentPrice();
     }
 
     public String getOrderType() {
         return orderType;
     }
 
-    public long getProfit() {
-        return profit;
+    public long getProfit(HashMap<CoinType, Coin> coinMap){
+        return this.orderType.equals("Short") ? this.entryPrice - coinMap.get(CoinType.valueOf(this.coinName)).getCurrentPrice()
+                : coinMap.get(CoinType.valueOf(this.coinName)).getCurrentPrice() - this.entryPrice;
     }
 
     // Setter

@@ -2,6 +2,8 @@ package client.service;
 
 import java.io.*;
 import java.time.LocalDateTime;
+
+import static client.service.GameManager.coinMap;
 import static client.test.Test.sc;
 import static client.test.Test.userProfile;
 
@@ -47,10 +49,10 @@ public class UserService {
                 position.getEntryTime(),
                 position.getEntryPrice(),
                 LocalDateTime.now().toString(),
-                position.getCurrentPrice(),
+                position.getCurrentPrice(coinMap),
                 position.getOrderType(),
                 (position.getOrderType() == "Long" ? 1 : -1)
-                        * ((position.getCurrentPrice() - position.getEntryPrice())
+                        * ((position.getCurrentPrice(coinMap) - position.getEntryPrice())
                         * position.getQuantity())
         );
 
