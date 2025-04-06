@@ -139,10 +139,7 @@ public class GameManager {
         }
     }
 
-        historyService.getTradingHistories(userProfile);
-    }
-
-    private void getUserInfo(){
+    private void getUserInfo() {
         userService.getUserInfo(userProfile);
     }
 
