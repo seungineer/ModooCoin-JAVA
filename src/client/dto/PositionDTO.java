@@ -62,9 +62,10 @@ public class PositionDTO implements Serializable {
         return orderType;
     }
 
-    public long getProfit(HashMap<CoinType, Coin> coinMap){
-        return this.orderType.equals("Short") ? this.entryPrice - coinMap.get(CoinType.valueOf(this.coinName)).getCurrentPrice()
-                : coinMap.get(CoinType.valueOf(this.coinName)).getCurrentPrice() - this.entryPrice;
+    public long getProfit(HashMap<CoinType, Coin> coinMap) {
+        final long diffPrice = this.entryPrice - coinMap.get(CoinType.valueOf(this.coinName)).getCurrentPrice();
+        final long diffProfit = diffPrice * this.quantity;
+        return this.orderType.equals("Short") ? diffProfit : -1 * diffProfit;
     }
 
     // Setter
